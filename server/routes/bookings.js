@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
+//var mysqljs = require("mysql");
 
 //var db = mongojs("mongodb://eman:eman@ds163181.mlab.com:63181/taxiapp", ["bookings"]);
 var db = mongojs("mongodb://yehdhih:Aicha69020@ds119732.mlab.com:19732/taxiapp", ["bookings"]);
@@ -34,6 +35,7 @@ console.log("In Server router.post bookings", booking);
 			res.json(savedBooking);
                      console.log("NearByDriver socket id: ",  nearByDriver.socketId );
 			if(nearByDriver.socketId){
+                     console.log("Issuing io.emit savedBooking:", savedBooking);
 				io.emit(nearByDriver.socketId + "driverRequest", savedBooking);
 			}else{
 				console.log("Driver not connected");
@@ -47,7 +49,7 @@ router.put("/bookings/:id", function(req, res, next){
            
     var io = req.app.io;
     var booking = req.body;
-           console.log("In Server router.post bookings", booking);
+           console.log("In Server router.put bookings", booking);
     if (!booking.status){
         res.status(400);
         res.json({
@@ -67,7 +69,7 @@ router.put("/bookings/:id", function(req, res, next){
                 if (error){
                     res.send(error);
                 }
-                                console.log("Booking Confirmed: In Server router.post bookings", booking);
+                                console.log("Booking Confirmed: In Server router.put bookings", booking);
                 res.send(confirmedBooking);
                 io.emit("action", {
                     type:"BOOKING_CONFIRMED",
@@ -78,8 +80,4 @@ router.put("/bookings/:id", function(req, res, next){
     });
     }
 });
-
-
-
-
 module.exports = router;

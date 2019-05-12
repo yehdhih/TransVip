@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
 
-//var db = mongojs("mongodb://eman:eman@ds163181.mlab.com:63181/taxiapp", ["driversLocation"]);
+
 var db = mongojs("mongodb://yehdhih:Aicha69020@ds119732.mlab.com:19732/taxiapp", ["driversLocation"]);
 
 //upadate driver socket id
@@ -33,6 +33,7 @@ router.put("/driverLocationSocket/:id", function(req, res, next){
 //get nearby driver
 router.get("/driverLocation", function(req, res, next){
              console.log("In get nearby driver 1");
+           console.log("coordinates:", [parseFloat(req.query.longitude), parseFloat(req.query.latitude)]);
 	db.driversLocation.ensureIndex({"coordinate":"2dsphere"});
 	db.driversLocation.find({
 			"coordinate":{
@@ -41,7 +42,7 @@ router.get("/driverLocation", function(req, res, next){
 						"type":"Point",
 						"coordinates": [parseFloat(req.query.longitude), parseFloat(req.query.latitude)]
 					},
-					"$maxDistance":10000
+					"$maxDistance":20000
 				}
 			}
 		}, function(err, location){
@@ -49,12 +50,12 @@ router.get("/driverLocation", function(req, res, next){
 				res.send(err);
 
 			}else{
+        console.log("Location", location);
 				res.send(location);
 			}
 	});
 
 });
-
 //Get Single Driver and emit track by user to driver
 router.get("/driverLocation/:id", function(req, res, next){
            console.log("In get nearby driver 2");
@@ -64,6 +65,7 @@ router.get("/driverLocation/:id", function(req, res, next){
             res.send(err);
         }
         res.send(location);
+        console.log("Driver location: ", location);
         io.emit("trackDriver", location);
     });
 });
@@ -113,3 +115,6 @@ router.put("/driverLocation/:id", function(req, res, next){
 });
 
 module.exports = router;
+
+
+//var db = mongojs("mongodb://eman:eman@ds163181.mlab.com:63181/taxiapp", ["driversLocation"]);
