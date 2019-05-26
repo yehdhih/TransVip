@@ -7,7 +7,7 @@ import styles from "./FabStyles.js";
 export const Fab = ({onPressAction})=>{
 	return (
 		<Button style={styles.fabContainer} onPress={onPressAction}>
-			<Text style={styles.btnText}> Confirm </Text>
+			<Text style={styles.btnText}> Reserver </Text>
 		</Button>
 
 	);

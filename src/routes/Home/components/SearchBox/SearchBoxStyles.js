@@ -27,7 +27,7 @@ const styles = {
         fontSize:14,
     },
     label:{
-        fontSize:10,
+        fontSize:14,
         fontStyle: "italic",
         marginLeft:10,
         marginTop:10,

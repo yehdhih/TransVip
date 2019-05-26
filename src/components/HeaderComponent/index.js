@@ -16,7 +16,7 @@ export const HeaderComponent =  ({logo})=>{
 			<Body>{logo &&
 					<Image resizeMode="contain" style={styles.logo} source={logo}/>
 					||
-					<Text style={styles.headerText}>Driver on the way</Text>
+					<Text style={styles.headerText}>Votre Chauffeur est en route</Text>
 				}
 			</Body>
 

@@ -7,11 +7,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import styles from "./DriverFooterProfileStyles.js";
 
 export const DriverFooterProfile = ({ driverInfo, getDriverLocation})=>{
-	const { profilePic, rating } = driverInfo || "";
+	const { ProfilePic, rating } = driverInfo || "";
 	return (
 		<View style={styles.footerContainer}>
 			<View style={styles.imageContainer}>
-				<Image resizemode="contain" style={styles.driverPic} source={{uri:profilePic}} />
+				<Image resizemode="contain" style={styles.driverPic} source={{uri:ProfilePic}} />
 			</View>
 			<View style={styles.ratingContainer}>
 				<StarRating

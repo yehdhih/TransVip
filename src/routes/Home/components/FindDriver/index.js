@@ -14,7 +14,8 @@ export const FindDriver = ({selectedAddress})=>{
 
 			<Spinner style={styles.spinner} isVisible size={150} type="Pulse" color="#ffffff"/>
 			<View style={styles.content}>
-				<Text style={styles.text}> Processing your request</Text>
+				<Text style={styles.text}> Reservation en cours ...</Text>
+            <Text style={styles.text}> Veuillez patienter ... </Text>
 				<Icon style={styles.locationIcon} name="map-marker"/>
 
 				<View style={styles.pickup}>
@@ -27,7 +28,7 @@ export const FindDriver = ({selectedAddress})=>{
 
 				<View>
 					
-					<Text style={styles.termsText}>By booking you confirm that you accept our T & C</Text>
+					<Text style={styles.termsText}>En réservant, vous confirmez que vous acceptez nos conditions générales.</Text>
 					<Button style={styles.cancelBtn}>
 						<Text style={styles.cancelBtnText}>Cancel</Text>
 

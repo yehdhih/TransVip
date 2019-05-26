@@ -12,8 +12,8 @@ export const DriverOnTheWayFooter = ({ driverInfo, distanceFromDriver})=>{
 		<View style={styles.footerContainer}>
 			<View style={styles.iconContainer}>
 				<Icon name="window-minimize" style={styles.icon}/>
-				<Text style={styles.distanceText}>{(duration.value < 100) ? "Your driver has arrived" : duration.text}</Text>
-				<Text style={styles.onWayText}>Your driver is on the way</Text>
+				<Text style={styles.distanceText}>{(duration.value < 100) ? "Votre Chauffeur est arrive" : duration.text}</Text>
+				<Text style={styles.onWayText}>Votre Chauffeur est en route</Text>
 				<Text style={styles.vehicleText}>{vehicle && vehicle.plateNumber} {vehicle && vehicle.model}</Text>
 
 			</View>

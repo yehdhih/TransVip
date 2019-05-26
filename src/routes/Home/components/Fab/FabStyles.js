@@ -26,7 +26,7 @@ const styles = {
         backgroundColor:"#0b0c10",
     },
     btnText: {
-        fontSize: 18,
+        fontSize: 16,
        fontWeight:"bold",
         color:"#CEA413",
     },
