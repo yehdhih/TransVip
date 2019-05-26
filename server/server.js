@@ -6,7 +6,8 @@ var index = require("./routes/index");
 var bookings = require("./routes/bookings");
 var driverLocation = require("./routes/driverLocation");
 var drivers = require("./routes/drivers");
-
+var driverLocation = require("./routes/userLocation");
+var drivers = require("./routes/users");
 var app = express();
 
 var port = 3000;
@@ -34,7 +35,8 @@ app.use("/", index);
 app.use("/api", bookings);
 app.use("/api", driverLocation);
 app.use("/api", drivers);
-
+app.use("/api", userLocation);
+app.use("/api", users);
 io.listen(app.listen(port, function(){
 	console.log("Server running on port", port);
 }));
